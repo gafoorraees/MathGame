@@ -69,6 +69,27 @@ namespace MyFirstProgram
             return result;
         }
 
+        internal static int[] GetHardDivisionNumbers()
+        {
+            var random = new Random();
+            var firstNumber = random.Next(1, 201);
+            var secondNumber = random.Next(1, 201);
+
+            var result = new int[2];
+
+            while (firstNumber % secondNumber != 0)
+            {
+                firstNumber = random.Next(1, 142);
+                secondNumber = random.Next(1, 142);
+            }
+
+
+            result[0] = firstNumber;
+            result[1] = secondNumber;
+
+            return result;
+        }
+
         internal static string ValidateResult(string? result)
         {
             while (string.IsNullOrEmpty(result) || !Int32.TryParse(result, out _))
